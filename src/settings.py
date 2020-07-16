@@ -32,6 +32,9 @@ class Settings:
     XPATH_CHALLENGE_SUBMIT_VOTES_DIV = '//div[contains(@class, "modal-vote__photos__actions")]/div[contains(@class, "modal-vote__submit on")]'
     XPATH_CHALLENGE_DONE_DIV = '//div[contains(@class, "modal-vote__message-wrap")]//div[contains(@class, "actions")]//div[contains(text(), "Done")]'
 
+    XPATH_END_OF_CHALLENGE_NEXT_DIV = '//md-dialog-actions/div[contains(@class, "c-modal-broadcast--closed__next")]'
+    XPATH_END_OF_CHALLENGE_CLOSE_DIV = '//div/md-dialog/div[contains(@class, "c-modal-broadcast--closed__close-btn")]'
+
     REGEX_EXPOSURE_FROM_STYLE = r'transform: *rotate\((-?[0-9]+\.?[0-9]*)deg\);'
 
     MIN_CHALLENGE_EXPOSURE = 0.0

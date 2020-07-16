@@ -49,8 +49,17 @@ class GSChallengesPage(GSPage):
         match = re.search(settings.REGEX_EXPOSURE_FROM_STYLE, meter_el.get_attribute('style'))
         return match and float(match.group(1)) or None
 
+    def cancel_end_of_challenge(self):
+        """
+            After challenge is finished, popup windows is shown that is blocking automation.
+            This method cancels this popup window.
+        """
+        self.click_element_by_xpath(settings.XPATH_END_OF_CHALLENGE_NEXT_DIV)
+        self.click_element_by_xpath(settings.XPATH_END_OF_CHALLENGE_CLOSE_DIV)
+
     def process_all_challenges(self):
         self.cancel_advertising()
+        self.cancel_end_of_challenge()
         challenges = self.get_elements_by_xpath(settings.XPATH_CHALLENGES_ITEM_DIV)
         for challenge in challenges:
             self.process_challenge(challenge)
